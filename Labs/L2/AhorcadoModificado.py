@@ -1,4 +1,4 @@
-#Laboratorio 2 Parte Calificada 
+#Laboratorio 2 Parte Calificada Nota 20
 #Natalia Escudero 20223377
 
 import os
