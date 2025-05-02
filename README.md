@@ -5,10 +5,10 @@ Primera Parte: Python con Prof. Benavides
 Segunda Parte:
 
 Notas:
-L1 : 20
-L2 : 20
-L3 : 18
-L4 : 13
-L5 : 
-L6 :
-EX1 :
+L1 : 20,
+L2 : 20,
+L3 : 18,
+L4 : 13,
+L5 : ,
+L6 : ,
+EX1 : ,
