@@ -1,7 +1,9 @@
 Arquitectura de Computadoras (Ingeniería Electrónica) 2025-1
 
 Todos mis apuntes de clase y laboratorios. By Natalia Escudero, natalia.escudero@pucp.edu.pe
+
 Primera Parte: Python con Prof. Benavides
+
 Segunda Parte:
 
 Notas:
