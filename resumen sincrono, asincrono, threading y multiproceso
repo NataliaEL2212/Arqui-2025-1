@@ -1,0 +1,81 @@
+1. Sync
+
+Un programa síncrono ejecuta instrucciones una detrás de otra, en orden secuencial. Cada tarea debe terminar para que comience la siguiente.
+El flujo de ejecución espera a que una operación termine antes de continuar.
+El CPU está dedicado a una sola tarea a la vez.
+
+Limitaciones
+Si una operación tarda mucho (por ejemplo, leer un archivo o una consulta a la red), todo el programa se "detiene" esperando, generando bloqueo o lentitud.
+No aprovecha múltiples CPUs o núcleos para paralelismo.
+
+Beneficios
+Código simple y fácil de entender.
+Sin problemas de sincronización compleja ni condiciones de carrera.
+
+Memoria y CPU
+Usa un solo hilo y proceso, por lo que todo se ejecuta en un único contexto.
+No hay competencia por CPU o memoria con otras tareas simultáneas en el mismo programa.
+
+2. Async (Asyncio)
+
+Un programa asíncrono puede iniciar una tarea y continuar ejecutando otras sin esperar a que la primera termine. Usa mecanismos para notificar cuando la tarea se completa.
+Usa un event loop que gestiona tareas que pueden esperar (I/O, timers).
+Las operaciones que suelen bloquear se hacen "no bloqueantes" mediante callbacks, promesas o async/await.
+No necesariamente usa múltiples hilos o procesos, sino que maximiza el uso del CPU con una sola hebra.
+
+Limitaciones
+No es adecuado para tareas CPU-intensivas, porque el event loop se ejecuta en un solo hilo.
+El código asíncrono puede ser más complejo y difícil de depurar.
+
+Beneficios
+Bueno para operaciones I/O, redes, bases de datos, archivos.
+Permite que la aplicación siga respondiendo mientras espera operaciones lentas.
+Mejor uso del CPU para programas I/O-bound.
+
+Memoria y CPU
+Normalmente usa un solo hilo y proceso.
+No se crea paralelismo real en CPU, pero se mejora la eficiencia al no bloquear la ejecución.
+La memoria es compartida porque es un solo proceso/hilo.
+
+3. Threading (Hilos)
+
+Un hilo (thread) es una unidad básica de ejecución dentro de un proceso. Un programa puede tener múltiples hilos que ejecutan código concurrentemente.
+Los hilos comparten el mismo espacio de memoria del proceso, lo que significa que comparten variables globales.
+El sistema operativo alterna la ejecución de los hilos o los ejecuta en paralelo si hay múltiples núcleos.
+En Python por el Global Interpreter Lock (GIL) sólo un hilo ejecuta código Python a la vez.
+
+Limitaciones
+En Python, para código CPU-bound, el threading no mejora el rendimiento por el GIL.
+La programación con hilos es propensa a errores por race conditions.
+Se requiere sincronización (ejem locks) para proteger memoria compartida.
+
+Beneficios
+Bueno para tareas que involucran I/O (red, disco), ya que hilos pueden esperar sin bloquear todo el proceso.
+Menor sobrecarga que crear procesos.
+Compartición de memoria facilita comunicación entre tareas.
+
+Memoria y CPU
+Todos los hilos dentro de un proceso comparten el mismo espacio de memoria (variables, estructuras).
+En Python, sólo un hilo ejecuta código Python en un momento dado (debido al GIL), pero pueden ejecutarse múltiples hilos nativos en espera (I/O).
+Uso del CPU depende de la carga y del sistema operativo.
+
+4. Multiprocessing (Multiprocesos)
+
+Ejecutar múltiples procesos independientes que corren código paralelo, cada uno con su propio espacio de memoria.
+Cada proceso es independiente y tiene su propio intérprete Python y memoria.
+No está limitado por el GIL, porque cada proceso tiene su propio GIL.
+
+Limitaciones
+Más consumo de memoria porque cada proceso tiene su propio espacio.
+Comunicación entre procesos más lenta y compleja que hilos.
+Mayor consumo al crear y destruir procesos.
+
+Beneficios
+Permite ejecución paralela real en múltiples CPUs o núcleos.
+Ideal para tareas CPU-bound que requieren mucha computación.
+Evita problemas del GIL y reduce problemas de sincronización porque la memoria no se comparte directamente.
+
+Memoria y CPU
+Cada proceso tiene espacio de memoria independiente, no comparten variables.
+CPU puede ejecutar procesos en paralelo en distintos núcleos.
+Para comunicarse, usan canales seguros que copian datos o usan memoria compartida explícita.
