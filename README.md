@@ -4,7 +4,7 @@ Todos mis apuntes de clase y laboratorios. By Natalia Escudero, natalia.escudero
 
 Primera Parte: Python con Prof. Benavides
 
-Segunda Parte:
+Segunda Parte: Assembler con Prof. Romero
 
 Notas:
 L1 : 20,
