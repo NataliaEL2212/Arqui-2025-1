@@ -25,3 +25,4 @@ ESCRITURA:
 Write throught y write back son en el caso de hit
 Write allocate y around son en el caso de miss. Es decir, primero identifican el miss y luego siguen el método de throught y write back.
 
+Cuello de botella es la saturación de electricidad en las líneas de bus. Es decir, la computadora se calienta. En cambio en write around es el tiempo de demora el problema.
