@@ -1,0 +1,22 @@
+(revisar fotos del celular porque se fue la luz y perdi mis apuntes iniciales)
+
++ Mapeo asociativo por N-vías:
+
+El mapeo asociativo por N-vías tiene como objetivo combinar los dos enfoques anteriores. Para ello, la propuesta del formato cambia a lo siguiente:
+
+- Cantidad de bits para representar la dirección física
+- Cantidad de bits para representar la cantidad de conjuntos
+- Cantidad de bits para representar la desplazamiento
+- Cantidad de bits para representar la etiqueta
+
+La idea de este mapeo es establecer cuántas vías existen en cada conjunto. Para ello, se define vías como la cantidad de bloques que existen en cada conjunto.
+
+Ejemplo
+Un sistema direccionable por byte cuenta con 16 MiB de almacenamiento. Adicionalmente, cuenta con una memoria caché de 32 KiB de tamaño y cada bloque de la caché cuenta con una capacidad de 128 bytes. Si el sistema utiliza un mapeo de 16 vías, hallar el formato correspondiente.
+
+Solución: Por dato, la cantidad de bits que se necesita para representar todas las direcciones físicas es de 24 bits. Además, si el tamaño de la caché es de 32 KiB y cada bloque tiene una capacidad de 128 bytes, entonces hay 256 bloques en caché. Dado que se está utilizando 16 vías, significa que cada conjunto almacenará 16 bloques; por tanto, hay un total de 16 conjuntos. Siendo así, el formato quedaría de la siguiente manera:
+
+Etiqueta (13)	Conjunto (4)	Desplazamiento (7)
+
+Recordar que el valor de la etiqueta es siempre la cantidad sobrante de bits.
+
