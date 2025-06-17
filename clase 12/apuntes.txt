@@ -20,3 +20,8 @@ Etiqueta (13)	Conjunto (4)	Desplazamiento (7)
 
 Recordar que el valor de la etiqueta es siempre la cantidad sobrante de bits.
 
+ESCRITURA:
+
+Write throught y write back son en el caso de hit
+Write allocate y around son en el caso de miss. Es decir, primero identifican el miss y luego siguen el método de throught y write back.
+
